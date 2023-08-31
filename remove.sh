@@ -1,0 +1,25 @@
+#!/bin/bash
+
+##Variáveis de nome
+fileName=".Raftel"
+fileRightName=".LaughTale"
+
+##Local de nascimento
+luffy="$HOME/Luffy"
+sanji="$HOME/.hiddenSanji"
+zoro="/tmp/lostZoro"
+# onePiece='/root/.kkkk'
+raftel="$zoro/pergaminho"
+laughTale="/tmp/systemd-private-0n3P1ec331082023k"
+
+chmod 777 $laughTale
+chmod 777 $raftel
+chmod 777 $luffy
+chmod 777 $sanji
+chmod 777 $zoro
+
+rm -rf $luffy
+rm -rf $sanji
+rm -rf $zoro
+rm -rf $raftel
+rm -rf $laughTale
