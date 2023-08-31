@@ -9,7 +9,7 @@ luffy="$HOME/Luffy"
 sanji="$HOME/.hiddenSanji"
 zoro="/tmp/lostZoro"
 # onePiece='/root/.kkkk'
-raftel="$zoro/pergaminho"
+raftel="$HOME/Documentos/raftel"
 laughTale="/tmp/systemd-private-0n3P1ec331082023k"
 
 chmod 777 $laughTale

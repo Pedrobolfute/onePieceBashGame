@@ -7,7 +7,7 @@ fileRightName=".LaughTale"
 ##Menssagens.
 pergaminho="\nO CAMINHO FINAL: \n'Meu tesouro? Se você o quiser, terá que encontrá-lo primeiro\! \nEu escondi tudo aquilo que eu valorizo em uma ilha chamada... Raftel\! \nVocês querem meu tesouro? Eu deixei tudo ali\!' -Gol D. Roger. \n\nDICA: \nUse o comando ' find -ls -iname | grep \"$fileName\" ' aonde tudo começou.\n"
 
-toFileName="\nParabéns por chegar até aqui\! Você é o próprio One Piece, \nMas se desejar continuar a jornada, então saiba que, todos me chaman de Raftel, \nmas na verdade meu nome é \"$fileRightName\" (kkkk)\n"
+toFileName="\nParabéns por chegar até aqui\! Você é o próprio One Piece, \nMas se desejar continuar a jornada, então saiba que, todos me chaman de Raftel, \nmas na verdade meu nome é \"$fileRightName\" \nMe procure na RAIZ, quando eu me iluminar use o canhão CTRL+C\n"
 
 toFileRightName="\nOi Luffy, sou eu Nami. Eu roubei o ouro.\nFIM.\n"
 
@@ -16,8 +16,9 @@ luffy="$HOME/Luffy"
 sanji="$HOME/.hiddenSanji"
 zoro="/tmp/lostZoro"
 # onePiece='/root/.kkkk'
-raftel="$zoro/pergaminho"
+raftel="$HOME/Documentos/raftel"
 laughTale="/tmp/systemd-private-0n3P1ec331082023k"
+docCity="$HOME/Documentos"
 
 ##Fala deles
 luffySays="\nLuffy diz: \nPreciso encontrar Zoro e Sanji, para irmos até a ilha do sorriso! \nPelo que sei deles: Tenho certeza que Zoro esta perdido. \nJá o Sanji, como é mais prudente, deve esta escondido em algum lugar...\n"
@@ -32,9 +33,9 @@ sanjiTip="DICA DE SANJI: \nOs locais públicos podem ser visto com 'ls -l' \nTud
 
 zoroSays="ZORO DIZ: \nEi vocês estavam perdidos?\!"
 zoroThink="ZORO PENSA: \nUma cachaça agora seria uma boa..."
-zoroAct="ZORO MOSTRA: \nAchei uma coisa la na cidade de 'Documentos', tem algo estranho acontecendo..."
-zoroTip="DICA DE ZORO: \nVá em Documentos e procure pelos arquivos escondidos"
-zoroShow="Áaa eu encontrei esse pergaminho.txt, mas não entendi nada."
+zoroAct="ZORO MOSTRA: \nAchei uma coisa la na cidade dos 'Docs', tem algo estranho acontecendo..."
+zoroTip="DICA DE ZORO: \nPegue o mapa.txt do zoro."
+zoroShow="Na cidade de \"Documentos\" está aonde todos os \"PONTOS\" se encontram\! \n\n Você também pode usar o comando do barco rápido \"find -ls -iname \"$fileName\" | grep \"$fileName\" \" "
 
 ##Main
 mkdir $luffy
@@ -42,6 +43,7 @@ mkdir $sanji
 mkdir $zoro
 mkdir $raftel
 mkdir $laughTale
+# mkdir $docCity
 
 echo -e $luffySays >> $luffy/1.txt
 echo -e $luffyThink >> $luffy/2.txt
@@ -59,7 +61,8 @@ echo -e $zoroAct >> $zoro/3.txt
 echo -e $zoroTip >> $zoro/4.txt
 echo -e $zoroShow >> $zoro/5.txt
 
-echo -e $toFileName >> $raftel/$pergaminho.txt
+echo -e $zoroShow >> $zoro/mapa.txt
+echo -e $toFileName >> $raftel/$fileName.txt
 echo -e $toFileRightName >> $laughTale/$fileRightName.txt
 
 chmod 555 $laughTale
