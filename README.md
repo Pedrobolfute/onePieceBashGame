@@ -12,7 +12,7 @@ Mini Jogo de One Piece na linguagem Bash para ensinar comandos e navegação no 
   
 - Zoro (O **espadachim** da tripulação)
 
-  - Um espadachim preguiçoso, que só pensa em cachaça, e ludas de espadas. Quase sempre ele está perdido.
+  - Um espadachim preguiçoso, que só pensa em cachaça, e lutas de espadas. Quase sempre ele está perdido.
 
 - Sanji (O **cozinheiro** da tripulação)
 
@@ -44,11 +44,11 @@ Cada pasta/diretório representa um personagem.
 
 Cada arquivo de texto dentro da pasta do usuário representa a fala do personagem.;
 
-Existe outros tipos de fala, como mapas, pergaminhos, poneglifs...
-
 - As falas de cada personagem vai te guiar a algum lugar.
 
 - As falas estão na ordem.
+
+Existe outros tipos de fala, como mapas, pergaminhos, poneglifs...
 
 Use o comando para navegar -> **cd**
 
@@ -56,6 +56,31 @@ Use o comando para ver -> **ls**
 
 Use o comando para "escutar" a fala -> **cat**
 
+### Para iniciar o jogo
+
+Baixe o repositório:
+
+> git clone https://github.com/Pedrobolfute/onePieceBashGame
+
+Vá até a pasta e exeulte o create.sh com
+
+> bash create.sh
+
+ou
+
+> ./create.sh
+
+Após isso o jogo já terá sido iniciado. Então vá até início, aonde tudo começa.
+
+> cd $HOME
+
+Se precisar sair do jogo, é aconcelhavel ir ao diretório aonde você iniciou e executar o script 
+
+> bash remove.sh
+
+ou
+
+> ./remove.sh
 ### Bom jogo! ⌛
 
 ### ⚒️ Jogo em desenvolvimento... ⛏️
