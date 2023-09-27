@@ -7,9 +7,9 @@ fileRightName=".LaughTale"
 ##Menssagens.
 pergaminho="\nO CAMINHO FINAL: \n'Meu tesouro? Se você o quiser, terá que encontrá-lo primeiro\! \nEu escondi tudo aquilo que eu valorizo em uma ilha chamada... Raftel\! \nVocês querem meu tesouro? Eu deixei tudo ali\!' -Gol D. Roger. \n\nDICA: \nUse o comando ' find -ls -iname | grep \"$fileName\" ' aonde tudo começou.\n"
 
-toFileName="\nParabéns por chegar até aqui\! Você é o próprio One Piece, \nMas se desejar continuar a jornada, então saiba que, todos me chaman de Raftel, \nmas na verdade meu nome é \"$fileRightName\" \nMe procure na RAIZ, quando eu ME ILUMINAR use o canhão CTRL+C\n... então o caminho será mostrado para você."
+toFileName="\nParabéns por chegar até aqui\! Você é o próprio One Piece, \nMas se desejar continuar a jornada, então saiba que, todos me chaman de Raftel, \nmas na verdade meu nome é \"$fileRightName\" \nMe procure na RAIZ, quando eu ME ILUMINAR use o canhão CTRL+C\n... então o caminho será mostrado para você.\n"
 
-toFileRightName="\nOi Luffy, sou eu Nami. Eu roubei o ouro.\n### FIM. ###\n"
+toFileRightName="\nOi Luffy, sou eu Nami. Eu roubei o ouro.\n          ### FIM. ###\n"
 
 ##Local de nascimento
 luffy="$HOME/Luffy"
@@ -26,10 +26,10 @@ luffyThink="\nLuffy pensa: \nCompensa mais achar o Sanji primeiro...\n"
 luffyAct="\nLUFFY GRITA: \nOOOII, SANJI\! CADÊ VOCÊ\!? \nESTOU COM FOME\! \nQUERO CARNEE\! \n"
 luffyTip="\nDICA DE LUFFY: \nSanji deve esta por perto, como eu nasci na HOME, talvez ele nasceu no mesmo lugar. \n\nUse 'ls -la' para ver quem está escondido. \n"
 
-sanjiSays="\nSANJI FALA: \nNão temos carne. Precisamos encontrar o Zoro, aquele cabeça de mato se perte toda hora\! \n"
+sanjiSays="\nSANJI FALA: \nNão temos carne. Precisamos encontrar o Zoro, aquele cabeça de mato se perde toda hora\! \n"
 sanjiThink="\nSANJI PENSA: \nAquele cabeça de mato deve estar em algum lugar incomun. \nNão é possível que ele entrou em algum lugar privado sem ter feito barulho, \npois está muito quieto ainda... \n"
-sanjiAct="\nSANJI ORDENA: \nvamos procura nos locais públicos\! \n"
-sanjiTip="\nDICA DE SANJI: \nOs locais públicos podem ser visto com 'ls -l' \nTudo que estiver com a marca 'drwxrwxrwt' ou 'drwxrwxrwx'... é um local extremamente público \nMelhor começar a procura desde a RAIZ desse mar. \n"
+sanjiAct="\nSANJI ORDENA: \nvamos procurar nos locais públicos\! \n"
+sanjiTip="\nDICA DE SANJI: \nOs locais públicos podem ser vistos com 'ls -l' \nTudo que estiver com a marca 'drwxrwxrwt' ou 'drwxrwxrwx'... é um local extremamente público \nMelhor começar a procura desde a RAIZ desse mar. \n"
 
 zoroSays="\nZORO DIZ: \nEi vocês estavam perdidos?\!\n"
 zoroThink="\nZORO PENSA: \nUma cachaça agora seria uma boa...\n"
