@@ -6,8 +6,8 @@ fileRightName=".LaughTale"
 
 ##Local de nascimento
 luffy="$HOME/Luffy"
-sanji="$HOME/.hiddenSanji"
-zoro="/tmp/lostZoro"
+sanji="$HOME/.Sanji"
+zoro="/tmp/Zoro"
 # onePiece='/root/.kkkk'
 raftel="$HOME/Documentos/raftel"
 laughTale="/tmp/systemd-private-0n3P1ec331082023k"

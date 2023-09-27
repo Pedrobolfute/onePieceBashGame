@@ -7,15 +7,15 @@ fileRightName=".LaughTale"
 ##Menssagens.
 pergaminho="\nO CAMINHO FINAL: \n'Meu tesouro? Se você o quiser, terá que encontrá-lo primeiro\! \nEu escondi tudo aquilo que eu valorizo em uma ilha chamada... Raftel\! \nVocês querem meu tesouro? Eu deixei tudo ali\!' -Gol D. Roger. \n\nDICA: \nUse o comando ' find -ls -iname | grep \"$fileName\" ' aonde tudo começou.\n"
 
-toFileName="\nParabéns por chegar até aqui\! Você é o próprio One Piece, \nMas se desejar continuar a jornada, então saiba que, todos me chaman de Raftel, \nmas na verdade meu nome é \"$fileRightName\" \nMe procure na RAIZ, quando eu me iluminar use o canhão CTRL+C\n"
+toFileName="\nParabéns por chegar até aqui\! Você é o próprio One Piece, \nMas se desejar continuar a jornada, então saiba que, todos me chaman de Raftel, \nmas na verdade meu nome é \"$fileRightName\" \nMe procure na RAIZ, quando eu ME ILUMINAR use o canhão CTRL+C\n... então o caminho será mostrado para você."
 
-toFileRightName="\nOi Luffy, sou eu Nami. Eu roubei o ouro.\nFIM.\n"
+toFileRightName="\nOi Luffy, sou eu Nami. Eu roubei o ouro.\n### FIM. ###\n"
 
 ##Local de nascimento
 luffy="$HOME/Luffy"
-sanji="$HOME/.hiddenSanji"
-zoro="/tmp/lostZoro"
-# onePiece='/root/.kkkk'
+sanji="$HOME/.Sanji"
+zoro="/tmp/Zoro"
+
 raftel="$HOME/Documentos/raftel"
 laughTale="/tmp/systemd-private-0n3P1ec331082023k"
 docCity="$HOME/Documentos"
@@ -23,19 +23,19 @@ docCity="$HOME/Documentos"
 ##Fala deles
 luffySays="\nLuffy diz: \nPreciso encontrar Zoro e Sanji, para irmos até a ilha do sorriso! \nPelo que sei deles: Tenho certeza que Zoro esta perdido. \nJá o Sanji, como é mais prudente, deve esta escondido em algum lugar...\n"
 luffyThink="\nLuffy pensa: \nCompensa mais achar o Sanji primeiro...\n"
-luffyAct="\nLUFFY GRITA: \nOOOII, SANJI\! CADÊ VOCÊ\!? \nESTOU COM FOME\! \nQUERO CARNEE\!"
-luffyTip="DICA DE LUFFY: \nSanji deve esta por perto, talvez ele nasceu no mesmo lugar que eu. \n\nUse 'ls -la' para ver quem está escondido."
+luffyAct="\nLUFFY GRITA: \nOOOII, SANJI\! CADÊ VOCÊ\!? \nESTOU COM FOME\! \nQUERO CARNEE\! \n"
+luffyTip="\nDICA DE LUFFY: \nSanji deve esta por perto, como eu nasci na HOME, talvez ele nasceu no mesmo lugar. \n\nUse 'ls -la' para ver quem está escondido. \n"
 
-sanjiSays="SANJI FALA: \nNão temos carne. Precisamos encontrar o Zoro, aquele cabeça de mato se perte toda hora\!"
-sanjiThink="SANJI PENSA: \nAquele cabeça de mato deve estar em algum lugar incomun. \nNão é possível que ele entrou em algum lugar privado sem ter feito barulho, \npois está muito quieto ainda..."
-sanjiAct="SANJI ORDENA: \nvamos procura nos locais públicos\!"
-sanjiTip="DICA DE SANJI: \nOs locais públicos podem ser visto com 'ls -l' \nTudo que estiver com a marca 'drwxrwxrwt' ou 'drwxrwxrwx'... é um local extremamente público \nMelhor começar a procura desde a RAIZ desse mar."
+sanjiSays="\nSANJI FALA: \nNão temos carne. Precisamos encontrar o Zoro, aquele cabeça de mato se perte toda hora\! \n"
+sanjiThink="\nSANJI PENSA: \nAquele cabeça de mato deve estar em algum lugar incomun. \nNão é possível que ele entrou em algum lugar privado sem ter feito barulho, \npois está muito quieto ainda... \n"
+sanjiAct="\nSANJI ORDENA: \nvamos procura nos locais públicos\! \n"
+sanjiTip="\nDICA DE SANJI: \nOs locais públicos podem ser visto com 'ls -l' \nTudo que estiver com a marca 'drwxrwxrwt' ou 'drwxrwxrwx'... é um local extremamente público \nMelhor começar a procura desde a RAIZ desse mar. \n"
 
-zoroSays="ZORO DIZ: \nEi vocês estavam perdidos?\!"
-zoroThink="ZORO PENSA: \nUma cachaça agora seria uma boa..."
-zoroAct="ZORO MOSTRA: \nAchei uma coisa la na cidade dos 'Docs', tem algo estranho acontecendo..."
-zoroTip="DICA DE ZORO: \nPegue o mapa.txt do zoro."
-zoroShow="Na cidade de \"Documentos\" está aonde todos os \"PONTOS\" se encontram\! \n\n Você também pode usar o comando do barco rápido \"find -ls -iname \"$fileName\" | grep \"$fileName\" \" "
+zoroSays="\nZORO DIZ: \nEi vocês estavam perdidos?\!\n"
+zoroThink="\nZORO PENSA: \nUma cachaça agora seria uma boa...\n"
+zoroAct="\nZORO MOSTRA: \nAchei uma coisa la na cidade dos 'Docs', tem algo estranho acontecendo...\n"
+zoroTip="\nDICA DE ZORO: \nPegue o mapa.txt do zoro.\n"
+zoroShow="\nNa cidade de \"Documentos\" está aonde todos os \"PONTOS\" se encontram\! \n\nVocê também pode usar o comando do submarino la na HOME \"find -ls -iname \"$fileName\" | grep \"$fileName\" \" \n... então o caminho será mostrado para você.\n"
 
 ##Main
 mkdir $luffy
@@ -43,7 +43,6 @@ mkdir $sanji
 mkdir $zoro
 mkdir $raftel
 mkdir $laughTale
-# mkdir $docCity
 
 echo -e $luffySays >> $luffy/1.txt
 echo -e $luffyThink >> $luffy/2.txt
@@ -70,3 +69,58 @@ chmod 555 $raftel
 chmod 500 $luffy
 chmod 100 $sanji
 chmod 100 $zoro
+
+cd $HOME
+
+## Boas vindas
+echo -e "
+=======================================================
+|         Bem-vindo ao One Piece Bash Game,           |
+|       esse jogo foi feito para você praticar        |
+|         seus conhecimentos no terminal.             |
+|                                                     |
+|Existem 4 personagens do mundo de One Piece          |
+|que nasceram nesse mar, no qual chamamos de TERMINAL.|
+|Os personagens são:                                  |
+|[Luffy, Zoro, Sanji, *Anonymo*]                      |
+|                                                     |
+|Na busca do grande tezouro chamado One Piece, o bando|
+|se dispersa... Seu objetivo como jogador é encontrar |
+|todos eles e ir em buca do One Piece!                |
+|                                                     |
+|                                                     |
+|O jogo inicia-se no diretório do usuário.            |
+|A ilha que chamamos de HOME.                         |
+|                                                     |
+|Quando eu me referir à RAIZ, estou falando           |
+|do primeiro diretório, a primeira ilha               |
+|conhecida por /                                      |
+=======================================================
+"
+
+echo -e "
+=======================================================
+|                                                     |
+|                   ### DICA ###                      |
+|             Ir direto para RAIZ: cd /               |
+|             Ir direto para HOME: cd $HOME           |
+|                                                     |
+|     Os personagens são representados por pastas;    |
+| As falas são arquivos de texto dentro do personagem;|
+|                                                     |
+=======================================================
+"
+
+echo -e "
+=======================================================
+|                                                     |
+|            ### COMANDOS PARA JOGAR ###              |
+|                                                     |
+|  ls = vê as ilhas/diretórios...                     |
+|  cd = navega de uma ilha/diretório para outra       |
+|  cd .. = volta uma ilha/diretório para trás         |
+|  cat = ouve as falas dos personagens                |
+|                                                     |
+|                                                     |
+=======================================================
+"
