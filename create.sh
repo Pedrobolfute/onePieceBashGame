@@ -35,7 +35,7 @@ zoroSays="\nZORO DIZ: \nEi vocês estavam perdidos?\!\n"
 zoroThink="\nZORO PENSA: \nUma cachaça agora seria uma boa...\n"
 zoroAct="\nZORO MOSTRA: \nAchei uma coisa la na cidade dos 'Docs', tem algo estranho acontecendo...\n"
 zoroTip="\nDICA DE ZORO: \nPegue o mapa.txt do zoro.\n"
-zoroShow="\nNa cidade de \"Documentos\" está aonde todos os \"PONTOS\" se encontram\! \n\nVocê também pode usar o comando do submarino la na HOME \"find -ls -iname \"$fileName\" | grep \"$fileName\" \" \n... então o caminho será mostrado para você.\n"
+zoroShow="\nO mapa ta no meu bolso seu bagre!\nUse 'cat mapa.txt' aqui.\n"
 
 ##Main
 mkdir $luffy
@@ -116,7 +116,7 @@ echo -e "
 |                                                     |
 |            ### COMANDOS PARA JOGAR ###              |
 |                                                     |
-|  ls = vê as ilhas/diretórios...                     |
+|  ls = vê as ilhas/diretórios e arquivos...          |
 |  cd = navega de uma ilha/diretório para outra       |
 |  cd .. = volta uma ilha/diretório para trás         |
 |  cat = ouve as falas dos personagens                |
