@@ -35,7 +35,7 @@ zoroSays="\nZORO DIZ: \nEi vocês estavam perdidos?\!\n"
 zoroThink="\nZORO PENSA: \nUma cachaça agora seria uma boa...\n"
 zoroAct="\nZORO MOSTRA: \nAchei uma coisa la na cidade dos 'Docs', tem algo estranho acontecendo...\n"
 zoroTip="\nDICA DE ZORO: \nPegue o mapa.txt do zoro.\n"
-zoroShow="\nO mapa ta no meu bolso seu bagre!\nUse 'cat mapa.txt' aqui.\n"
+zoroShow="\nVai para HOME e use o comando:\n find . -ls -iname \".raftel\" | grep \".raftel\" \n"
 
 ##Main
 mkdir $luffy
@@ -70,7 +70,6 @@ chmod 500 $luffy
 chmod 100 $sanji
 chmod 100 $zoro
 
-cd $HOME
 
 ## Boas vindas
 echo -e "
@@ -124,3 +123,5 @@ echo -e "
 |                                                     |
 =======================================================
 "
+
+cd
