@@ -36,8 +36,20 @@ zoroThink="\nZORO PENSA: \nUma cachaça agora seria uma boa...\n"
 zoroAct="\nZORO MOSTRA: \nAchei uma coisa la na cidade dos 'Docs', tem algo estranho acontecendo...\n"
 zoroTip="\nDICA DE ZORO: \nPegue o mapa.txt do zoro.\n"
 zoroShow="\nVai para HOME e use o comando:\n find . -ls -iname \".raftel\" | grep \".raftel\" \n"
+zoroShowOne="Você pode usar o comando finds para ajudar a achar alguma coisa de forma mais simples. Vá para HOME e use o comando finds .raftel"
 
 ##Main
+
+## not working properly function finds (source create.sh)
+cp $HOME/.bashrc $HOME/.bashrc-backup
+cat << 'EOF' >> $HOME/.bashrc
+finds(){
+  find . -ls -iname "*$1" 2>/dev/null | grep -i --color=auto "$1"
+}
+EOF
+source $HOME/.bashrc
+##
+
 mkdir $luffy
 mkdir $sanji
 mkdir $zoro

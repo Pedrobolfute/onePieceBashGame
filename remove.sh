@@ -23,3 +23,9 @@ rm -rf $sanji
 rm -rf $zoro
 rm -rf $raftel
 rm -rf $laughTale
+
+if [ -e "$HOME/.bashrc-backup" ]; then
+  rm $HOME/.bashrc
+  mv $HOME/.bashrc-backup $HOME/.bashrc
+  source $HOME/.bashrc
+fi
