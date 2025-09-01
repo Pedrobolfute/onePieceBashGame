@@ -5,7 +5,7 @@ fileName=".Raftel"
 fileRightName=".LaughTale"
 
 ##Menssagens.
-pergaminho="\nO CAMINHO FINAL: \n'Meu tesouro? Se você o quiser, terá que encontrá-lo primeiro\! \nEu escondi tudo aquilo que eu valorizo em uma ilha chamada... Raftel\! \nVocês querem meu tesouro? Eu deixei tudo ali\!' -Gol D. Roger. \n\nDICA: \nUse o comando ' find -ls -iname | grep \"$fileName\" ' aonde tudo começou.\n"
+pergaminho="\nO CAMINHO FINAL: \n'Meu tesouro? Se você o quiser, terá que encontrá-lo primeiro\! \nEu escondi tudo aquilo que eu valorizo em uma ilha chamada... Raftel\! \nVocês querem meu tesouro? Eu deixei tudo ali\!' -Gol D. Roger. \n\nDICA: \nUse o comando ' find $HOME -ls -iname \"$fileName\" 2>/dev/null | grep -i \"$fileName\" ' aonde tudo começou.\n"
 
 toFileName="\nParabéns por chegar até aqui\! Você é o próprio One Piece, \nMas se desejar continuar a jornada, então saiba que, todos me chaman de Raftel, \nmas na verdade meu nome é \"$fileRightName\" \nMe procure na RAIZ, quando eu ME ILUMINAR use o canhão CTRL+C\n... então o caminho será mostrado para você.\n"
 
@@ -35,7 +35,7 @@ zoroSays="\nZORO DIZ: \nEi vocês estavam perdidos?\!\n"
 zoroThink="\nZORO PENSA: \nUma cachaça agora seria uma boa...\n"
 zoroAct="\nZORO MOSTRA: \nAchei uma coisa la na cidade dos 'Docs', tem algo estranho acontecendo...\n"
 zoroTip="\nDICA DE ZORO: \nPegue o mapa.txt do zoro.\n"
-zoroShow="\nVai para HOME e use o comando:\n find . -ls -iname \".raftel\" | grep \".raftel\" \n"
+zoroShow="\nNo diretório HOME e use o comando:\n find $HOME -ls -iname \".raftel\" 2>/dev/null | grep -i \".raftel\" \n" ##easy
 
 ##Main
 mkdir $luffy
@@ -124,4 +124,4 @@ echo -e "
 =======================================================
 "
 
-cd
+# cd
