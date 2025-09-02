@@ -87,198 +87,107 @@ chmod 100 $zoro
 
 # Verifica se whiptail existe
 if command -v whiptail >/dev/null 2>&1; then
-    # Tela 1 - Boas-vindas
-    whiptail --title "One Piece Bash Game" --msgbox \
-"Bem-vindo ao One Piece Bash Game!
 
-Você entrou em um mar chamado TERMINAL. Nele, há quatro personagens do One Piece estão perdidos ou escondidos:
-[Luffy, Zoro, Sanji e *Anonymo*]
+  # === TELA 1 ===
+  if whiptail --title "One Piece Bash Game" --yesno \
+    "Bem-vindo ao One Piece Bash Game!
 
-Seu objetivo é encontrar todos eles e seguir rumo ao tesouro!
+    Seu objetivo é encontrar os personagens:
+    [Luffy, Zoro, Sanji e *Anonymo*]
 
+    O jogo começa no diretório HOME (~).
+    A RAIZ do sistema é representada por /." \
+    20 60 --yes-button "Avançar" --no-button "Sair"
+    then
 
-O jogo começa no diretório HOME (~).
-A RAIZ do sistema é representada por /." \
-20 60
+      # === TELA 2 ===
+      if whiptail --title "Dicas" --yesno \
+        "Dicas rápidas:
 
-    # Tela 2 - Dicas
-    whiptail --title "Dicas" --msgbox \
-"### Dicas ###
-O jogo começa no diretório HOME (~).
-A RAIZ do sistema é representada por /.
+        cd /   → vai para a RAIZ
+        cd ~   → volta para HOME
 
-Ir para a RAIZ:   cd /
-Ir para HOME:     cd ~
+        Personagens = pastas
+        Falas = arquivos de texto" \
+        15 50 --yes-button "Avançar" --no-button "Voltar"
+        then
 
-Personagens = pastas
-Falas = arquivos de texto" \
-15 50
+          # === TELA 3 ===
+          if whiptail --title "Comandos" --yesno \
+            "Comandos para jogar:
 
-    # Tela 3 - Comandos
-    whiptail --title "Comandos de ação" --msgbox \
-"### Comandos úteis ###
+            ls       → lista pastas e arquivos
+            cd X     → entra na pasta X
+            cd ..    → volta uma pasta
+            cat ARQ  → lê a fala" \
+            15 50 --yes-button "Iniciar Jogo" --no-button "Voltar"
+            then
+              echo ">>> Jogo iniciado!"
+          else
+            exec "$0" # Volta para a tela de dicas
+          fi
 
-ls       → lista pastas e arquivos (VIZUALIZAÇÃO)
-cd X     → entra na pasta X (IR PRA FRENTE)
-cd ..    → volta uma pasta (VOLTAR PARA TRÁS)
-cat ARQ  → lê um arquivo (fala do personagem) (OUVIR PERSONAGEM)"\
-15 50
+        else
+            exec "$0" # Volta para a tela inicial
+        fi
+      else
+        echo ">>> Jogo encerrado."
+      fi
+
 else
+    # =======================
     # Fallback com echo
-    echo "
-Bem-vindo ao One Piece Bash Game!
-Personagens escondidos: [Luffy, Zoro, Sanji e *Anonymo*]
-Objetivo: Encontrar todos e seguir rumo ao One Piece!
-Início: HOME (~) | RAIZ: /
+    # =======================
+    echo -e "
+=======================================================
+|         Bem-vindo ao One Piece Bash Game,           |
+|       esse jogo foi feito para você praticar        |
+|         seus conhecimentos no terminal.             |
+|                                                     |
+|Existem 4 personagens do mundo de One Piece          |
+|que nasceram nesse mar, no qual chamamos de TERMINAL.|
+|Os personagens são:                                  |
+|[Luffy, Zoro, Sanji, *Anonymo*]                      |
+|                                                     |
+|Na busca do grande tesouro chamado One Piece, o bando|
+|se dispersa... Seu objetivo como jogador é encontrar |
+|todos eles e ir em busca do One Piece!               |
+|                                                     |
+|O jogo inicia-se no diretório do usuário.            |
+|A ilha que chamamos de HOME.                         |
+|                                                     |
+|Quando eu me referir à RAIZ, estou falando           |
+|do primeiro diretório, a primeira ilha               |
+|conhecida por /                                      |
+=======================================================
 "
 
-    echo "
-### Dicas ###
-cd /   → vai para RAIZ
-cd ~   → vai para HOME
-Personagens = pastas | Falas = arquivos
+    echo -e "
+=======================================================
+|                                                     |
+|                   ### DICA ###                      |
+|             Ir direto para RAIZ: cd /               |
+|             Ir direto para HOME: cd \$HOME           |
+|                                                     |
+|     Os personagens são representados por pastas;    |
+| As falas são arquivos de texto dentro do personagem;|
+|                                                     |
+=======================================================
 "
 
-    echo "
-### Comandos ###
-ls       → lista pastas
-cd X     → entra na pasta
-cd ..    → volta
-cat ARQ  → lê fala
+    echo -e "
+=======================================================
+|                                                     |
+|            ### COMANDOS PARA JOGAR ###              |
+|                                                     |
+|  ls = vê as ilhas/diretórios e arquivos...          |
+|  cd = navega de uma ilha/diretório para outra       |
+|  cd .. = volta uma ilha/diretório para trás         |
+|  cat = ouve as falas dos personagens                |
+|                                                     |
+=======================================================
 "
 fi
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# if command -v wwwhiptail >/dev/null 2>&1; then
-#     # =======================
-#     # Tela 1 - Boas-vindas
-#     # =======================
-#     if ! whiptail --title "One Piece Bash Game" --yesno "
-# Bem-vindo ao One Piece Bash Game!
-
-# Esse jogo foi feito para você praticar seus conhecimentos no terminal.
-
-# Existem 4 personagens do mundo de One Piece que nasceram nesse mar, no qual chamamos de TERMINAL.
-# Os personagens são: [Luffy, Zoro, Sanji, *Anonymo*]
-
-# Na busca do grande tesouro chamado One Piece, o bando se dispersa...
-# Seu objetivo como jogador é encontrar todos eles e ir em busca do One Piece!
-
-# O jogo inicia-se no diretório do usuário (a ilha chamada HOME).
-# Quando eu me referir à RAIZ, estou falando do primeiro diretório, a primeira ilha conhecida por /.
-# " 25 70 --yes-button "Avançar" --no-button "Voltar"; then
-#         exit 1
-#     fi
-
-#     # =======================
-#     # Tela 2 - Dicas
-#     # =======================
-#     if ! whiptail --title "Dicas do Jogo" --yesno "
-# ### DICA ###
-
-# Ir direto para RAIZ:   cd /
-# Ir direto para HOME:   cd \$HOME
-
-# Os personagens são representados por pastas;
-# As falas são arquivos de texto dentro do personagem.
-# " 20 60 --yes-button "Avançar" --no-button "Voltar"; then
-#         # Se o jogador clicar em Voltar, volta para a tela 1
-#         exec "$0"
-#     fi
-
-#     # =======================
-#     # Tela 3 - Comandos
-#     # =======================
-#     if ! whiptail --title "Comandos do Jogo" --yesno "
-# ### COMANDOS PARA JOGAR ###
-
-# ls       = vê as ilhas/diretórios e arquivos
-# cd       = navega de uma ilha/diretório para outra
-# cd ..    = volta uma ilha/diretório para trás
-# cat      = ouve as falas dos personagens
-# " 20 60 --yes-button "Começar!" --no-button "Voltar"; then
-#         # Se o jogador clicar em Voltar, volta para a tela 2
-#         exec "$0"
-#     fi
-
-# else
-#     # =======================
-#     # Fallback com echo
-#     # =======================
-#     echo -e "
-# =======================================================
-# |         Bem-vindo ao One Piece Bash Game,           |
-# |       esse jogo foi feito para você praticar        |
-# |         seus conhecimentos no terminal.             |
-# |                                                     |
-# |Existem 4 personagens do mundo de One Piece          |
-# |que nasceram nesse mar, no qual chamamos de TERMINAL.|
-# |Os personagens são:                                  |
-# |[Luffy, Zoro, Sanji, *Anonymo*]                      |
-# |                                                     |
-# |Na busca do grande tesouro chamado One Piece, o bando|
-# |se dispersa... Seu objetivo como jogador é encontrar |
-# |todos eles e ir em busca do One Piece!               |
-# |                                                     |
-# |O jogo inicia-se no diretório do usuário.            |
-# |A ilha que chamamos de HOME.                         |
-# |                                                     |
-# |Quando eu me referir à RAIZ, estou falando           |
-# |do primeiro diretório, a primeira ilha               |
-# |conhecida por /                                      |
-# =======================================================
-# "
-
-#     echo -e "
-# =======================================================
-# |                                                     |
-# |                   ### DICA ###                      |
-# |             Ir direto para RAIZ: cd /               |
-# |             Ir direto para HOME: cd \$HOME           |
-# |                                                     |
-# |     Os personagens são representados por pastas;    |
-# | As falas são arquivos de texto dentro do personagem;|
-# |                                                     |
-# =======================================================
-# "
-
-#     echo -e "
-# =======================================================
-# |                                                     |
-# |            ### COMANDOS PARA JOGAR ###              |
-# |                                                     |
-# |  ls = vê as ilhas/diretórios e arquivos...          |
-# |  cd = navega de uma ilha/diretório para outra       |
-# |  cd .. = volta uma ilha/diretório para trás         |
-# |  cat = ouve as falas dos personagens                |
-# |                                                     |
-# =======================================================
-# "
-# fi
 
 
 ##cd
