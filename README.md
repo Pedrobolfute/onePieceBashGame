@@ -84,3 +84,15 @@ ou
 ### Bom jogo! ⌛
 
 ### ⚒️ Jogo em desenvolvimento... ⛏️
+
+### TO DO
+
+- ajeitar menssagens do jogo
+
+- Verificações pra ver se já existe ou não a pasta e aquivo criado, antes de criar o novo, para evitar espoiler de onde a pasta vai ser criada (no criate e no remove);
+
+- melhorar tamanho da menssagem
+
+- adicionar comandos de dicas no bashrc e entrar com source e tirar modo exe
+
+- UMA MUDANÇA PARA O FUTURO. ENCONTRAR MAPAS QUE RODA NOVOS SCRIPTS APAGANDO INFORMAÇÕES E INDO PARA FRENTE.
