@@ -38,107 +38,160 @@ zoroTip="\nDICA DE ZORO: \nPegue o mapa.txt do zoro.\n"
 zoroShow="\nVai para HOME e use o comando:\n find . -ls -iname \".raftel\" | grep \".raftel\" \n"
 zoroShowOne="Você pode usar o comando finds para ajudar a achar alguma coisa de forma mais simples. Vá para HOME e use o comando finds .raftel"
 
-##Main
+info(){
+  local myinfo="$1"
 
-## not working properly function finds (source create.sh)
-cp $HOME/.bashrc $HOME/.bashrc-backup
-cat << 'EOF' >> $HOME/.bashrc
-finds(){
-  find . -ls -iname "*$1" 2>/dev/null | grep -i --color=auto "$1"
+  whiptail --title "Informe" --msgbox \
+  "$myinfo" \
+  15 50 --ok-button "Ok"
 }
-EOF
-source $HOME/.bashrc
-##
 
-mkdir $luffy
-mkdir $sanji
-mkdir $zoro
-mkdir $raftel
-mkdir $laughTale
+    createDir() {
+    local path="$1"
+    if [ -e "$path" ]; then
+      chmod -R 777 "$path" 2>/dev/null
+      rm -rf "$path"
+      mkdir $path 2>/dev/null
+      echo "..."
+    else
+      mkdir $path 2>/dev/null
+      echo "Ok."
+    fi
+  }
 
-echo -e $luffySays >> $luffy/1.txt
-echo -e $luffyThink >> $luffy/2.txt
-echo -e $luffyAct >> $luffy/3.txt
-echo -e $luffyTip >> $luffy/4.txt
+removeAll(){
+    safeRemove() {
+    local path="$1"
+    if [ -e "$path" ]; then
+      chmod -R 777 "$path" 2>/dev/null
+      rm -rf "$path"
+    fi
+  }
 
-echo -e $sanjiSays >> $sanji/1.txt
-echo -e $sanjiThink >> $sanji/2.txt
-echo -e $sanjiAct >> $sanji/3.txt
-echo -e $sanjiTip >> $sanji/4.txt
+  safeRemove "$luffy"
+  safeRemove "$sanji"
+  safeRemove "$zoro"
+  safeRemove "$raftel"
+  safeRemove "$laughTale"
 
-echo -e $zoroSays >> $zoro/1.txt
-echo -e $zoroThink >> $zoro/2.txt
-echo -e $zoroAct >> $zoro/3.txt
-echo -e $zoroTip >> $zoro/4.txt
-echo -e $zoroShow >> $zoro/5.txt
-
-echo -e $zoroShow >> $zoro/mapa.txt
-echo -e $toFileName >> $raftel/$fileName.txt
-echo -e $toFileRightName >> $laughTale/$fileRightName.txt
-
-chmod 555 $laughTale
-chmod 555 $raftel
-chmod 500 $luffy
-chmod 100 $sanji
-chmod 100 $zoro
+if [ -e "$HOME/.bashrc-backup" ]; then
+  rm $HOME/.bashrc
+  mv $HOME/.bashrc-backup $HOME/.bashrc
+  source $HOME/.bashrc
+fi
+}
 
 
-#!/bin/bash
+main(){
+  ## not working properly function finds (source create.sh)
+  cp $HOME/.bashrc $HOME/.bashrc-backup
+#   cat << 'EOF' >> "$HOME/.bashrc"
+#   finds(){
+#     find . -ls -iname "*$1" 2>/dev/null | grep -i --color=auto "$1"
+#   }
+# EOF
+
+  createDir $luffy
+  createDir $sanji
+  createDir $zoro
+  createDir $raftel
+  createDir $laughTale
+
+  echo -e $luffySays >> $luffy/1.txt
+  echo -e $luffyThink >> $luffy/2.txt
+  echo -e $luffyAct >> $luffy/3.txt
+  echo -e $luffyTip >> $luffy/4.txt
+
+  echo -e $sanjiSays >> $sanji/1.txt
+  echo -e $sanjiThink >> $sanji/2.txt
+  echo -e $sanjiAct >> $sanji/3.txt
+  echo -e $sanjiTip >> $sanji/4.txt
+
+  echo -e $zoroSays >> $zoro/1.txt
+  echo -e $zoroThink >> $zoro/2.txt
+  echo -e $zoroAct >> $zoro/3.txt
+  echo -e $zoroTip >> $zoro/4.txt
+  echo -e $zoroShow >> $zoro/5.txt
+
+  echo -e $zoroShow >> $zoro/mapa.txt
+  echo -e $toFileName >> $raftel/$fileName.txt
+  echo -e $toFileRightName >> $laughTale/$fileRightName.txt
+
+  chmod 555 $laughTale
+  chmod 555 $raftel
+  chmod 500 $luffy
+  chmod 100 $sanji
+  chmod 100 $zoro
+}
 
 # Verifica se whiptail existe
 if command -v whiptail >/dev/null 2>&1; then
 
-  # === TELA 1 ===
-  if whiptail --title "One Piece Bash Game" --yesno \
-    "Bem-vindo ao One Piece Bash Game!
+  tela=1 # Começa na tela 1
 
-    Seu objetivo é encontrar os personagens:
-    [Luffy, Zoro, Sanji e *Anonymo*]
+  while true; do
+    case $tela in
+      1) # === TELA 1 ===
+        if whiptail --title "One Piece Bash Game" --yesno \
+"Bem-vindo ao One Piece Bash Game
 
-    O jogo começa no diretório HOME (~).
-    A RAIZ do sistema é representada por /." \
-    20 60 --yes-button "Avançar" --no-button "Sair"
-    then
 
-      # === TELA 2 ===
-      if whiptail --title "Dicas" --yesno \
-        "Dicas rápidas:
-
-        cd /   → vai para a RAIZ
-        cd ~   → volta para HOME
-
-        Personagens = pastas
-        Falas = arquivos de texto" \
-        15 50 --yes-button "Avançar" --no-button "Voltar"
+Seu objetivo é encontrar os personagens:
+[Luffy, Zoro, Sanji e *Anonymo*]
+O jogo começa no diretório HOME (~).
+A RAIZ do sistema é representada por /." \
+          20 50 --yes-button "Avançar" --no-button "Sair"
         then
-
-          # === TELA 3 ===
-          if whiptail --title "Comandos" --yesno \
-            "Comandos para jogar:
-
-            ls       → lista pastas e arquivos
-            cd X     → entra na pasta X
-            cd ..    → volta uma pasta
-            cat ARQ  → lê a fala" \
-            15 50 --yes-button "Iniciar Jogo" --no-button "Voltar"
-            then
-              echo ">>> Jogo iniciado!"
-          else
-            exec "$0" # Volta para a tela de dicas
-          fi
-
+          tela=2
         else
-            exec "$0" # Volta para a tela inicial
+          removeAll
+          info ">>> Jogo Encerrado."
+          echo ">>> Jogo encerrado."
+          break
+          exit 0
         fi
-      else
-        echo ">>> Jogo encerrado."
-      fi
+      ;;
+      2) # === TELA 2 ===
+        if whiptail --title "Dicas" --yesno \
+          "Dicas rápidas:
+
+          cd /   → vai para a RAIZ
+          cd ~   → volta para HOME
+
+          Personagens = pastas
+          Falas = arquivos de texto" \
+          15 50 --yes-button "Avançar" --no-button "Voltar"
+        then
+          tela=3
+        else
+          tela=1
+        fi
+      ;;
+      3) # === TELA 3 ===
+        if whiptail --title "Comandos" --yesno \
+          "Comandos para jogar:
+
+          ls       → lista pastas e arquivos
+          cd X     → entra na pasta X
+          cd ..    → volta uma pasta
+          cat ARQ  → lê a fala" \
+          15 50 --yes-button "Iniciar Jogo" --no-button "Voltar"
+        then
+          main
+          echo ">>> Jogo iniciado!"
+          exit 0
+        else
+          tela=2
+        fi
+      ;;
+    esac
+  done
 
 else
-    # =======================
-    # Fallback com echo
-    # =======================
-    echo -e "
+  # =======================
+  # Fallback com echo
+  # =======================
+  echo -e "
 =======================================================
 |         Bem-vindo ao One Piece Bash Game,           |
 |       esse jogo foi feito para você praticar        |
@@ -162,7 +215,7 @@ else
 =======================================================
 "
 
-    echo -e "
+  echo -e "
 =======================================================
 |                                                     |
 |                   ### DICA ###                      |
@@ -175,7 +228,7 @@ else
 =======================================================
 "
 
-    echo -e "
+  echo -e "
 =======================================================
 |                                                     |
 |            ### COMANDOS PARA JOGAR ###              |
@@ -189,5 +242,4 @@ else
 "
 fi
 
-
-##cd
+# cd
