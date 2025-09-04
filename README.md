@@ -82,8 +82,6 @@ Se precisar sair do jogo, é aconcelhavel ir ao diretório aonde você o iniciou
 
 - ajeitar menssagens do jogo
 
-- UMA MUDANÇA PARA O FUTURO. ENCONTRAR MAPAS QUE RODA NOVOS SCRIPTS APAGANDO INFORMAÇÕES E INDO PARA FRENTE.
-
 - cat em source txt em sh
 
-- criar xx deixa lixo
+- UMA MUDANÇA PARA O FUTURO. ENCONTRAR MAPAS QUE RODA NOVOS SCRIPTS APAGANDO INFORMAÇÕES E INDO PARA FRENTE.

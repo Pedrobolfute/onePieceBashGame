@@ -35,7 +35,7 @@ zoroSays="\nZORO DIZ: \nEi vocês estavam perdidos?\!\n"
 zoroThink="\nZORO PENSA: \nUma cachaça agora seria uma boa...\n"
 zoroAct="\nZORO MOSTRA: \nAchei uma coisa la na cidade dos 'Docs', tem algo estranho acontecendo...\n"
 zoroTip="\nDICA DE ZORO: \nPegue o mapa.txt do zoro.\n"
-zoroShow="\nVai para HOME e use o comando:\n find . -ls -iname \".raftel\" | grep \".raftel\" \n"
+zoroShow="\nVai para HOME e use o comando:\n find . -ls -iname \".raftel\" 2>/dev/null | grep \".raftel\" \n"
 zoroShowOne="Você pode usar o comando finds para ajudar a achar alguma coisa de forma mais simples. Vá para HOME e use o comando finds .raftel"
 
 info(){
@@ -81,44 +81,82 @@ if [ -e "$HOME/.bashrc-backup" ]; then
 fi
 }
 
-
-main(){
+toBash(){
   cp $HOME/.bashrc $HOME/.bashrc-backup
   cat << 'EOF' >> "$HOME/.bashrc"
   finds(){
     find . -ls -iname "*$1" 2>/dev/null | grep -i --color=auto "$1"
   }
 
-sos(){
-  if command -v whiptail >/dev/null 2>&1; then
-    whiptail --title "Dicas" --msgbox \
-"📌 Dicas rápidas:
-
-📂 Personagens = pastas
-📄 Falas = arquivos de texto
-📄 ver = comando ls
-
-💻 Comandos úteis:
-cd /     → vai para a RAIZ
-cd ~     → volta para HOME
-cat arquivo.txt → lê arquivo
-pwd → mostra o local que você está
-" \
-    20 60
-  else
-    echo -e "\n📌 Dicas rápidas:\n"
-    echo "📂 Personagens = pastas"
-    echo "📄 Falas = arquivos de texto"
-    echo
-    echo "💻 Comandos úteis:"
-    echo "cd /     → vai para a RAIZ"
-    echo "cd ~     → volta para HOME"
-    echo "cat arquivo.txt → lê arquivo"
-    echo "pwd → mostra o local que você está"
-  fi
+  sos(){
+    if command -v whiptail >/dev/null 2>&1; then
+      whiptail --title "Dicas" --msgbox \
+  "📌 Dicas rápidas:
+  
+  📂 Personagens = pastas
+  📄 Falas = arquivos de texto
+  📄 ver = comando ls
+  
+  💻 Comandos úteis:
+  cd /     → vai para a RAIZ
+  cd ~     → volta para HOME
+  cat arquivo.txt → lê arquivo
+  pwd → mostra o local que você está
+  
+  💻 Comando de direção:
+  logpose → Sua bússola no GoingTermi
+  " \
+      20 60
+    else
+      echo -e "\n📌 Dicas rápidas:\n"
+      echo "📂 Personagens = pastas"
+      echo "📄 Falas = arquivos de texto"
+      echo
+      echo "💻 Comandos úteis:"
+      echo "cd /     → vai para a RAIZ"
+      echo "cd ~     → volta para HOME"
+      echo "cat arquivo.txt → lê arquivo"
+      echo "pwd → mostra o local que você está"
+      echo
+      echo "💻 Comando de direção:"
+      echo "logpose → Sua bússola no GoingTermi"
+      echo
+    fi
+  }
+  
+  logpose(){
+    local mensagem="🧭 LogPose - Sua bússola no GoingTermi!
+  
+  📌 Objetivo:
+  Encontre o personagem **Luffy**.
+  Ele é um diretório que está localizado na sua **HOME**.
+  
+  ➡️ Passo a passo:
+  1. Vá para a HOME do terminal.
+  2. Entre no diretório **Luffy**.
+  3. Descubra a mensagem que o capitão vai falar!
+  
+  💡 Dica:
+  Se não lembrar os comandos básicos, digite **sos** no terminal."
+  
+    if command -v whiptail >/dev/null 2>&1; then
+      whiptail --title "GoingTermi - LogPose" --msgbox "$mensagem" 20 70
+    else
+      echo -e "\n$mensagem\n"
+    fi
+  }
+  
+  
+EOF
 }
 
-EOF
+
+main(){  
+  if ! [[ -d "$luffy" && -d "$zoro" ]]; then
+    toBash
+  else
+    echo "Jogo em andamento!"
+  fi
 
   createDir $luffy
   createDir $sanji
@@ -186,6 +224,8 @@ A RAIZ do sistema é representada por /." \
 
           cd /   → vai para a RAIZ
           cd ~   → volta para HOME
+          cd x   → entra na pasta x
+          cd ..  → volta uma pasta para trás
 
           Personagens = pastas
           Falas = arquivos de texto" \
