@@ -18,9 +18,9 @@ Mini Jogo de One Piece na linguagem Bash para ensinar comandos e navegação no 
 
   - O cozinheiro mulherengo de primeira. O idiota mais sensato do bando.
 
-- Nami (A **Navegadora** da tripulação)
+- ... (A **...** da tripulação)
 
-  - A gata ladra, Nami. Agora é a navegadora do Bando. Ela gosta muito de dinheiro.
+  - ...
 
 - ...
 
@@ -62,25 +62,18 @@ Baixe o repositório:
 
 > git clone https://github.com/Pedrobolfute/onePieceBashGame
 
-Vá até a pasta e exeulte o create.sh com
+Pelo terminal, vá até a pasta e exeulte o comando source create.sh
 
-> bash create.sh
+> source create.sh
 
-ou
-
-> ./create.sh
-
-Após isso o jogo já terá sido iniciado. Então vá até início, aonde tudo começa.
+Após isso o jogo já terá sido iniciado corretamente.
 
 > cd $HOME
 
-Se precisar sair do jogo, é aconcelhavel ir ao diretório aonde você iniciou e executar o script 
+Se precisar sair do jogo, é aconcelhavel ir ao diretório aonde você o iniciou e executar o script remove.sh
 
-> bash remove.sh
+> source remove.sh
 
-ou
-
-> ./remove.sh
 ### Bom jogo! ⌛
 
 ### ⚒️ Jogo em desenvolvimento... ⛏️
@@ -89,10 +82,8 @@ ou
 
 - ajeitar menssagens do jogo
 
-- Verificações pra ver se já existe ou não a pasta e aquivo criado, antes de criar o novo, para evitar espoiler de onde a pasta vai ser criada (no criate e no remove);
-
-- melhorar tamanho da menssagem
-
-- adicionar comandos de dicas no bashrc e entrar com source e tirar modo exe
-
 - UMA MUDANÇA PARA O FUTURO. ENCONTRAR MAPAS QUE RODA NOVOS SCRIPTS APAGANDO INFORMAÇÕES E INDO PARA FRENTE.
+
+- cat em source txt em sh
+
+- criar xx deixa lixo

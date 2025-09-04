@@ -83,13 +83,42 @@ fi
 
 
 main(){
-  ## not working properly function finds (source create.sh)
   cp $HOME/.bashrc $HOME/.bashrc-backup
-#   cat << 'EOF' >> "$HOME/.bashrc"
-#   finds(){
-#     find . -ls -iname "*$1" 2>/dev/null | grep -i --color=auto "$1"
-#   }
-# EOF
+  cat << 'EOF' >> "$HOME/.bashrc"
+  finds(){
+    find . -ls -iname "*$1" 2>/dev/null | grep -i --color=auto "$1"
+  }
+
+sos(){
+  if command -v whiptail >/dev/null 2>&1; then
+    whiptail --title "Dicas" --msgbox \
+"📌 Dicas rápidas:
+
+📂 Personagens = pastas
+📄 Falas = arquivos de texto
+📄 ver = comando ls
+
+💻 Comandos úteis:
+cd /     → vai para a RAIZ
+cd ~     → volta para HOME
+cat arquivo.txt → lê arquivo
+pwd → mostra o local que você está
+" \
+    20 60
+  else
+    echo -e "\n📌 Dicas rápidas:\n"
+    echo "📂 Personagens = pastas"
+    echo "📄 Falas = arquivos de texto"
+    echo
+    echo "💻 Comandos úteis:"
+    echo "cd /     → vai para a RAIZ"
+    echo "cd ~     → volta para HOME"
+    echo "cat arquivo.txt → lê arquivo"
+    echo "pwd → mostra o local que você está"
+  fi
+}
+
+EOF
 
   createDir $luffy
   createDir $sanji
@@ -171,6 +200,7 @@ A RAIZ do sistema é representada por /." \
         if whiptail --title "Comandos" --yesno \
           "Comandos para jogar:
 
+          sos      → ajuda
           ls       → lista pastas e arquivos
           cd X     → entra na pasta X
           cd ..    → volta uma pasta
@@ -178,7 +208,9 @@ A RAIZ do sistema é representada por /." \
           15 50 --yes-button "Iniciar Jogo" --no-button "Voltar"
         then
           main
+          source "$HOME/.bashrc"
           echo ">>> Jogo iniciado!"
+          break
           exit 0
         else
           tela=2

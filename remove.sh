@@ -35,6 +35,7 @@ if [ -e "$HOME/.bashrc-backup" ]; then
 fi
 
 echo "Até a proxima!"
+source "$HOME/.bashrc"
 }
 
 removeAll
